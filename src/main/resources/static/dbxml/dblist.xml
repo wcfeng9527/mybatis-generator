@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<dblist>
+	<db>
+		<id>1</id>
+		<showname>192.168.103.170-dbies</showname>
+		<url>jdbc:mysql://192.168.103.170:3306/information_schema</url>
+		<database>test</database>
+		<username>scmUser</username>
+		<password>111111</password>
+	</db>
+	<db>
+		<id>2</id>
+		<showname>127.0.0.1-test</showname>
+		<url>jdbc:mysql://127.0.0.1:3306/information_schema</url>
+		<database>test</database>
+		<username>admin</username>
+		<password>111111</password>
+	</db>
+	
+
+</dblist>

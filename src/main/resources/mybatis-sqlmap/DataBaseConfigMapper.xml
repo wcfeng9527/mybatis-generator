@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.generator.dao.DataBaseConfigMapper">
+  <resultMap id="BaseResultMap" type="com.mybatis.generator.model.DataBaseConfig">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="show_name" jdbcType="VARCHAR" property="showName" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="database_name" jdbcType="VARCHAR" property="databaseName" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+    <result column="state" jdbcType="BIT" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, show_name, url, database_name, username, pwd, state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from databaseconfig
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectDataBaseList" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from databaseconfig
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from databaseconfig
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mybatis.generator.model.DataBaseConfig">
+    insert into databaseconfig (id, show_name, url, 
+      database_name, username, pwd, 
+      state)
+    values (#{id,jdbcType=INTEGER}, #{showName,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{databaseName,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
+      #{state,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mybatis.generator.model.DataBaseConfig">
+    insert into databaseconfig
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="showName != null">
+        show_name,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="databaseName != null">
+        database_name,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="pwd != null">
+        pwd,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="showName != null">
+        #{showName,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="databaseName != null">
+        #{databaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null">
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mybatis.generator.model.DataBaseConfig">
+    update databaseconfig
+    <set>
+      <if test="showName != null">
+        show_name = #{showName,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="databaseName != null">
+        database_name = #{databaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null">
+        pwd = #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mybatis.generator.model.DataBaseConfig">
+    update databaseconfig
+    set show_name = #{showName,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      database_name = #{databaseName,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR},
+      state = #{state,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

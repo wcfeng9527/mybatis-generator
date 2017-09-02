@@ -1,0 +1,33 @@
+server:
+  port: 8899
+  jsp-servlet:
+    init-parameters:
+      development: true;
+# Server settings
+spring:  
+#  profiles : dev   #这个是在yml里面配置的，一般有dev和prod两个yml文件，里面配置不一样，切换其实应该在pom中有个profiles标签 里面可以指定用哪个配置
+  application:
+    name: generator    # 项目名称尽量用小写
+  mvc:
+   view:
+    prefix: /WEB-INF/views/  # MVC view prefix
+    suffix: .jsp   # ... and suffix
+  datasource:  
+    name: mydb  
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://10.12.31.106/test?characterEncoding=UTF-8
+    username: scmUser  
+    password: 111111  
+    driver-class-name: com.mysql.jdbc.Driver  
+  
+      
+      
+mybatis:   
+  mapperLocations: classpath*:mybatis-sqlmap/*.xml  
+  typeAliasesPackage: com.mybatis.generator.model
+
+dbxml: 
+  url: /static/dbxml/dblist.xml
+  
+
+  
